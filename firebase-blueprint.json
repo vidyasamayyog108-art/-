@@ -1,0 +1,109 @@
+{
+  "entities": {
+    "User": {
+      "title": "User",
+      "description": "User profile and account information",
+      "type": "object",
+      "properties": {
+        "uid": { "type": "string" },
+        "phoneNumber": { "type": "string" },
+        "fullName": { "type": "string" },
+        "subCaste": { "type": "string" },
+        "gotra": { "type": "string" },
+        "birthDate": { "type": "string", "format": "date" },
+        "birthTime": { "type": "string" },
+        "birthPlace": { "type": "string" },
+        "gender": { "type": "string", "enum": ["male", "female"] },
+        "profilePhotoUrl": { "type": "string" },
+        "isPremium": { "type": "boolean" },
+        "status": { "type": "string", "enum": ["pending", "approved", "blocked"] },
+        "createdAt": { "type": "string", "format": "date-time" },
+        "updatedAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["uid", "phoneNumber", "fullName", "subCaste", "birthDate", "birthTime", "birthPlace", "gender"]
+    },
+    "Payment": {
+      "title": "Payment",
+      "description": "Membership payment records",
+      "type": "object",
+      "properties": {
+        "userId": { "type": "string" },
+        "amount": { "type": "number" },
+        "screenshotUrl": { "type": "string" },
+        "status": { "type": "string", "enum": ["pending", "approved", "rejected"] },
+        "createdAt": { "type": "string", "format": "date-time" }
+      }
+    },
+    "Message": {
+      "title": "Message",
+      "description": "Direct message between users",
+      "type": "object",
+      "properties": {
+        "senderId": { "type": "string" },
+        "receiverId": { "type": "string" },
+        "text": { "type": "string" },
+        "createdAt": { "type": "string", "format": "date-time" }
+      }
+    },
+    "Ad": {
+      "title": "Ad",
+      "description": "Rotating banner advertisement",
+      "type": "object",
+      "properties": {
+        "imageUrl": { "type": "string" },
+        "targetUrl": { "type": "string" },
+        "targetPhone": { "type": "string" },
+        "views": { "type": "number" },
+        "clicks": { "type": "number" },
+        "createdAt": { "type": "string", "format": "date-time" }
+      }
+    },
+    "SuccessStory": {
+      "title": "Success Story",
+      "description": "User shared success stories",
+      "type": "object",
+      "properties": {
+        "title": { "type": "string" },
+        "content": { "type": "string" },
+        "imageUrl": { "type": "string" },
+        "createdAt": { "type": "string", "format": "date-time" }
+      }
+    },
+    "SystemSettings": {
+      "title": "System Settings",
+      "description": "Global application configuration",
+      "type": "object",
+      "properties": {
+        "marqueeText": { "type": "object" },
+        "membershipPrice": { "type": "number" },
+        "fast2smsApiKey": { "type": "string" }
+      }
+    }
+  },
+  "firestore": {
+    "users": {
+      "schema": "User",
+      "description": "User profiles"
+    },
+    "payments": {
+      "schema": "Payment",
+      "description": "Subscription payments"
+    },
+    "chats/{chatId}/messages": {
+      "schema": "Message",
+      "description": "Chat messages between two users"
+    },
+    "ads": {
+      "schema": "Ad",
+      "description": "Advertisements"
+    },
+    "successStories": {
+      "schema": "SuccessStory",
+      "description": "Success stories"
+    },
+    "settings": {
+      "schema": "SystemSettings",
+      "description": "Global settings"
+    }
+  }
+}

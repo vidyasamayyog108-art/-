@@ -1,0 +1,46 @@
+@import url('https://fonts.googleapis.com/css2?family=Karma:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Karma", serif;
+  
+  --color-maroon: #800000;
+  --color-gold: #D4AF37;
+  --color-gold-light: #F9E79F;
+  --color-maroon-dark: #4A0000;
+}
+
+@layer base {
+  body {
+    @apply bg-amber-50 text-gray-900 font-sans;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-display font-medium;
+  }
+}
+
+.marquee-container {
+  overflow: hidden;
+  white-space: nowrap;
+  background: var(--color-maroon);
+  color: white;
+  padding: 6px 0;
+}
+
+.marquee-content {
+  display: inline-block;
+  animation: marquee 30s linear infinite;
+  padding-left: 100%;
+}
+
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-100%); }
+}
+
+.jain-symbol {
+  color: var(--color-gold);
+}
+

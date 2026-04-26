@@ -1,0 +1,9 @@
+{
+  "name": "Vivah Setu - Digambar Jain Matrimony",
+  "description": "A professional matrimonial platform exclusively for the Digambar Jain community, featuring Kundali matching, in-app messaging, and AI help desk.",
+  "requestFramePermissions": [
+    "camera",
+    "microphone"
+  ],
+  "majorCapabilities": []
+}
